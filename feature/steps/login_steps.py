@@ -17,7 +17,7 @@ def step_valid_credentials(context):
 
 @when("ingresa credenciales invalidas")
 def step_invalid_credentials(context):
-    context.login_page.login("usuario_falso", "clave_falsa")
+    context.login_page.login(USERNAME, "wrongpassword")
 
 
 @then('es redirigido al dashboard y ve el texto "{text}"')
