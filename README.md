@@ -49,6 +49,30 @@ behave -k --tags=smoke           # solo login exitoso
 behave -k --tags=regression      # solo login fallido
 ```
 
+## Reportes
+
+Al ejecutar `behave` se generan automaticamente:
+
+```
+reports/
+├── report.json              # Resultados en formato JSON (sobrescrito)
+├── test.log                 # Log de ejecucion (sobrescrito)
+├── screenshots/             # Capturas de TODOS los escenarios (limpiadas al iniciar)
+│   ├── Login_exitoso_con_credenciales_validas.png
+│   └── Login_fallido_con_credenciales_invalidas.png
+└── fail/                    # Solo escenarios fallidos (limpiadas al iniciar)
+    └── Login_fallido_con_credenciales_invalidas.png
+```
+
+| Carpeta / Archivo | Descripcion |
+|-------------------|-------------|
+| `report.json` | Resultado de todos los escenarios en JSON (pasa/falla, pasos, duracion) |
+| `test_*.log` | Log con hora de inicio/fin de cada escenario y errores |
+| `screenshots/` | Captura de pantalla de **todos** los escenarios (pasen o fallen) |
+| `fail/` | Solo los escenarios que **fallaron** (para revision rapida) |
+
+La carpeta `reports/` esta en `.gitignore` y no se sube al repositorio.
+
 ## Credenciales
 
 Estan hardcodeadas en `utils/config.py` para que cualquier modulo las importe:
