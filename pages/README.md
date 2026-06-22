@@ -29,5 +29,5 @@ class LoginPage:
 
 - Localizadores como constantes de clase (tuplas `(By.*, "selector")`).
 - Métodos representan acciones del usuario (verbos: `login`, `search`, `click_save`).
-- Nunca usar `time.sleep()`; usar esperas explícitas (`WebDriverWait`).
+- Nunca usar `time.sleep()`; usar esperas explícitas (`WebDriverWait`) o eventos nativos del browser.
 - Un Page Object NO debe contener aserciones (eso va en los steps).

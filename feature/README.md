@@ -23,5 +23,6 @@ Feature: Login
 ## Reglas
 
 - NO incluir lógica de programación, solo pasos declarativos.
-- Los steps se implementan en `steps/` (a definir si se requiere).
+- Los steps se implementan en `steps/`.
 - Cada `Scenario` debe ser independiente y atómico.
+- Escenarios con limitaciones conocidas del sistema pueden etiquetarse con `@known_issue`.

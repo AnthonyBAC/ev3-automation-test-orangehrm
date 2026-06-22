@@ -7,8 +7,10 @@ Utilidades compartidas para el framework de pruebas.
 | Archivo         | Propósito                                      |
 | --------------- | ---------------------------------------------- |
 | `driver.py`     | Inicialización y configuración del WebDriver    |
-| `config.py`     | Carga de variables desde `.env`                 |
-| `helpers.py`    | Funciones auxiliares (esperas, capturas, etc.)  |
+| `config.py`     | Configuración base del demo (`BASE_URL`, `USERNAME`, `PASSWORD`) |
+| `helpers.py`    | Esperas compartidas + `assertTrue`/`assertEqual` |
+| `logger.py`     | Configuración de `reports/test.log`             |
+| `report_generator.py` | Generación de `reports/html/report.html` |
 
 ## Ejemplo: `driver.py`
 
@@ -26,18 +28,13 @@ def get_driver(browser="chrome"):
 ## Ejemplo: `config.py`
 
 ```python
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-BASE_URL  = os.getenv("BASE_URL")
-USERNAME  = os.getenv("USERNAME")
-PASSWORD  = os.getenv("PASSWORD")
+BASE_URL = "https://opensource-demo.orangehrmlive.com"
+USERNAME = "Admin"
+PASSWORD = "admin123"
 ```
 
 ## Reglas
 
-- Mantener funciones puras y reutilizables.
-- No incluir lógica específica de un caso de prueba.
-- Documentar parámetros y retornos.
+- Mantener funciones reutilizables.
+- No incluir lógica específica de un escenario en helpers compartidos.
+- Si una utilidad solo se usa una vez, preferir dejarla cerca de su contexto.
